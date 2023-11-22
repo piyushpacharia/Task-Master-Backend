@@ -35,7 +35,7 @@ const signUp = (req, res) => {
                                     from: process.env.user,
                                     subject: "Activate Your Task Master Account",
                                     html: `<p> Hey ${updatedUser.name}, Welcome To Task Master.<br/> Your Account has been created. In order to use your account you have to verify your email by clicking on following link </p>
-                                    <a style="padding:10px; background-color: dodgerblue" href="https://task-master-frontend-phi.vercel.app/auth/activate-account/${token}"> Activate Account </a>
+                                    <a style="padding:10px; background-color: dodgerblue" href="${process.env.BACKEND_URL}/auth/activate-account/${token}"> Activate Account </a>
                                     `,
                                 };
 
@@ -73,7 +73,7 @@ const signUp = (req, res) => {
                                 from: process.env.user,
                                 subject: "Activate Your Task Master Account",
                                 html: `<p> Hey ${newUser.name},Welcome To Task Master.<br/> Your Account has been created. In order to use your account you have to verify your email by clicking on following link </p>
-                                <a style="padding:10px; background-color: dodgerblue" href="https://task-master-frontend-phi.vercel.app/auth/activate-account/${token}"> Activate Account </a>
+                                <a style="padding:10px; background-color: dodgerblue" href="${process.env.BACKEND_URL}/auth/activate-account/${token}"> Activate Account </a>
                                 `,
                             };
 
@@ -134,7 +134,7 @@ const activateAccount=(req,res)=>{
         })
         
         .then(()=>{
-           return res.redirect("https://task-master-frontend-phi.vercel.app/")
+           return res.redirect("http://localhost:5173/")
         })
         .catch(() =>
         res.json({
@@ -175,7 +175,7 @@ const sendForgetPasswordLink =(req,res)=>{
                 subject:"Activate Your Task Master Account ",
                 html:`<p>hello ${user.name},click on the following link to update your password</p>
 
-                <a style="padding:10px; background-color: dodgerblue" href="https://task-master-frontend-phi.vercel.app/forget-password/set-password/${newToken2}"> Update Password </a>
+                <a style="padding:10px; background-color: dodgerblue" href="http://localhost:5173/forget-password/set-password/${newToken2}"> Update Password </a>
 
                 <p> If it's not done by you, Just igngone it </p>`
             }
