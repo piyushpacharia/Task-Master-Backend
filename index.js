@@ -18,7 +18,7 @@ app.use("/task", isLoggedIn, taskRouter);
 dotenv.config();
 
 mongoose
-  .connect(process.env.BASE_URL)
+  .connect(process.env.DATABASE_URL)
   .then(() => console.log("Database Connected"))
   .catch((err) => console.log("Error while connecting database", err.message));
 
