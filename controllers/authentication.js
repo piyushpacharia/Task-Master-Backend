@@ -134,7 +134,7 @@ const activateAccount=(req,res)=>{
         })
         
         .then(()=>{
-           return res.redirect("http://localhost:5173/")
+           return res.redirect("https://task-master-frontend-phi.vercel.app/")
         })
         .catch(() =>
         res.json({
