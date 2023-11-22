@@ -16,10 +16,15 @@ app.use(cors());
 app.use("/auth", authRouter);
 app.use("/task", isLoggedIn, taskRouter);
 dotenv.config();
-
+app.get("/",(req,res)=>res.json({success:true,message:"Server is running fine"}))
 mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => console.log("Database Connected"))
   .catch((err) => console.log("Error while connecting database", err.message));
-
-app.listen(3001, () => console.log("server is running at 3001"));
+let PORT ;
+if(process.env.PORT){
+  PORT =process.env.PORT
+}else{
+  PORT = 8000
+}
+app.listen(PORT, () => console.log(`server is running at ${8000}`));
